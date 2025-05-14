@@ -457,7 +457,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const btnCopiarPix = document.getElementById("copiar-pix");
   if (btnCopiarPix) {
     btnCopiarPix.addEventListener("click", function () {
-      const chavePix = ""; //colocar a chave pix para copiar aqui;
+      const chavePix = "sonhosobre3rodas@gmail.com"; //colocar a chave pix para copiar aqui;
       navigator.clipboard
         .writeText(chavePix)
         .then(function () {
