@@ -356,34 +356,44 @@ document.addEventListener("keydown", function (event) {
 });
 
 // Funcionalidade para o FAQ
-const faqQuestions = document.querySelectorAll(".faq-question");
-if (faqQuestions) {
-  faqQuestions.forEach((question) => {
-    question.addEventListener("click", () => {
-      const faqItem = question.parentElement;
+document.addEventListener("DOMContentLoaded", function () {
+  const faqQuestions = document.querySelectorAll(".faq-question");
+  if (faqQuestions && faqQuestions.length > 0) {
+    faqQuestions.forEach((question) => {
+      question.addEventListener("click", () => {
+        const faqItem = question.parentElement;
 
-      // Fecha todos os itens
-      document.querySelectorAll(".faq-item").forEach((item) => {
-        if (item !== faqItem) {
+        // Verifica se o item clicado já está ativo
+        const isActive = faqItem.classList.contains("active");
+
+        // Fecha todos os itens
+        document.querySelectorAll(".faq-item").forEach((item) => {
+          // Remove a classe active de todos os itens
           item.classList.remove("active");
+
+          // Reseta todos os ícones para o estado inicial (+)
+          const icon = item.querySelector(".faq-toggle i");
+          if (icon) {
+            icon.classList.remove("fa-minus");
+            icon.classList.add("fa-plus");
+          }
+        });
+
+        // Se o item não estava ativo antes, ativa-o agora
+        if (!isActive) {
+          faqItem.classList.add("active");
+
+          // Altera o ícone para (-)
+          const toggleIcon = question.querySelector(".faq-toggle i");
+          if (toggleIcon) {
+            toggleIcon.classList.remove("fa-plus");
+            toggleIcon.classList.add("fa-minus");
+          }
         }
       });
-
-      // Alterna o estado do item clicado
-      faqItem.classList.toggle("active");
-
-      // Alterna o ícone
-      const toggleIcon = question.querySelector(".faq-toggle i");
-      if (faqItem.classList.contains("active")) {
-        toggleIcon.classList.remove("fa-plus");
-        toggleIcon.classList.add("fa-minus");
-      } else {
-        toggleIcon.classList.remove("fa-minus");
-        toggleIcon.classList.add("fa-plus");
-      }
     });
-  });
-}
+  }
+});
 
 // Animação para os itens da timeline
 const timelineItems = document.querySelectorAll(".timeline-item");

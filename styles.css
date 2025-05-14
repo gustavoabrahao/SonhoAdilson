@@ -895,12 +895,25 @@ html {
   margin-bottom: 3rem;
 }
 
+.faq-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .faq-item {
   margin-bottom: 20px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-5px);
 }
 
 .faq-question {
@@ -916,6 +929,7 @@ html {
 .faq-question h3 {
   margin: 0;
   font-size: 1.2rem;
+  flex: 1;
 }
 
 .faq-toggle {
@@ -925,6 +939,7 @@ html {
   align-items: center;
   justify-content: center;
   transition: transform 0.3s;
+  color: #00b894;
 }
 
 .faq-question:hover {
@@ -935,16 +950,30 @@ html {
   padding: 0 20px;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-out;
+  transition: max-height 0.5s ease-out, padding 0.3s ease;
+}
+
+.faq-answer p {
+  line-height: 1.8;
 }
 
 .faq-item.active .faq-answer {
-  max-height: 300px;
+  max-height: 500px;
   padding: 0 20px 20px;
 }
 
 .faq-item.active .faq-toggle {
   transform: rotate(45deg);
+}
+
+@media (max-width: 768px) {
+  .faq-container {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-question h3 {
+    font-size: 1.1rem;
+  }
 }
 
 /* Seção Benefícios para Apoiadores */
