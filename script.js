@@ -451,3 +451,33 @@ if (beneficioItems.length > 0) {
     observerBeneficios.observe(item);
   });
 }
+
+// Função para copiar chave PIX
+document.addEventListener("DOMContentLoaded", function () {
+  const btnCopiarPix = document.getElementById("copiar-pix");
+  if (btnCopiarPix) {
+    btnCopiarPix.addEventListener("click", function () {
+      const chavePix = ""; //colocar a chave pix para copiar aqui;
+      navigator.clipboard
+        .writeText(chavePix)
+        .then(function () {
+          // Mudar o texto do botão temporariamente
+          const textoOriginal = btnCopiarPix.innerHTML;
+          btnCopiarPix.innerHTML =
+            '<i class="fas fa-check"></i> Chave PIX Copiada!';
+          btnCopiarPix.style.backgroundColor = "#28a745";
+
+          // Voltar ao estado original após 2 segundos
+          setTimeout(function () {
+            btnCopiarPix.innerHTML = textoOriginal;
+            btnCopiarPix.style.backgroundColor = "";
+          }, 2000);
+        })
+        .catch(function () {
+          alert(
+            "Não foi possível copiar a chave PIX. Por favor, tente novamente."
+          );
+        });
+    });
+  }
+});

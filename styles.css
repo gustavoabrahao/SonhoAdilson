@@ -121,9 +121,10 @@ nav {
   justify-content: center;
   text-align: center;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("img/hero-bg.jpg");
+    url("img/bannerinicio.png");
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   color: #fff;
   padding-top: 80px;
 }
@@ -355,6 +356,35 @@ nav {
   color: #0984e3;
 }
 
+/* Botão de copiar PIX */
+.btn-copiar-pix {
+  background-color: #00b894; /*cor do botao*/
+  color: #fff; /*cor do texto do botao*/
+  border: none; /*retira a borda preta do botão*/
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.btn-copiar-pix i {
+  margin-right: 8px;
+  color: #fff !important;
+}
+
+.btn-copiar-pix:hover {
+  background-color: #00a085;
+  transform: translateY(-2px);
+}
+
+.btn-copiar-pix:active {
+  transform: translateY(0);
+}
+
 /* Seção Galeria */
 .galeria-grid {
   display: grid;
@@ -583,6 +613,15 @@ section {
 }
 
 @media (max-width: 768px) {
+  .hero {
+    background-position: top center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #000;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("img/bannermobile.png");
+  }
+
   .nav-links {
     display: none;
   }
