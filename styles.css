@@ -254,6 +254,23 @@ nav {
   font-size: 1.5rem;
 }
 
+.mapa-responsivo {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%; /* Proporção 16:9 para o mapa */
+  max-width: 900px; /* Largura máxima */
+  margin: 0 auto;
+}
+
+.mapa-responsivo iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
 /* Seção Apoie */
 .apoie {
   background: linear-gradient(135deg, #00b894 0%, #067a75 100%);
